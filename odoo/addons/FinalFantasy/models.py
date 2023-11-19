@@ -32,4 +32,13 @@ class SOLDADOS(models.Model):
             if record.fechaNacimiento < fields.Date.to_date('1900-01-01'):
                 raise models.ValidationError("La fecha de nacimiento no puede ser menor a 1900-01-01")
 
+class SOLDADOSPRIMERA(models.Model):
+    nombre = fields.Char()
+    fechaNacimiento = fields.Date()
+    armaEspecial = fields.Char()
+    clase = fields.Selection([('primera','Primera Clase'),('segunda','Segunda Clase')])
+    mision = fields.Char()
+    mision2 = fields.Char()
+    mision3 = fields.Char()
+
 
