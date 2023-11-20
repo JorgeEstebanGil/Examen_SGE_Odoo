@@ -1,7 +1,7 @@
 from odoo import models, fields, api
 
 class CERVEZA(models.Model):
-    __name__ = 'cerveza.cerveza'
+    _name = 'cerveza.cerveza'
     name = fields.Char('Nombre', required=True)
     tipo = fields.Char('Tipo', required=True)
     Description = fields.Text('Descripcion')
@@ -36,29 +36,30 @@ class CERVEZA(models.Model):
         return self.search([('Precio_Unidad', '=', precio_unidad)])
 
 class LOTE_PRODUCCION(models.Model):
-    __name__ = 'cerveza.lote_produccion'
+    _name = 'cerveza.lote_produccion'
     lote_produccion_ids = fields.Many2one('cerveza.cerveza', 'Cerveza', required=True)
     fecha_inicio = fields.Date('Fecha inicio')
     fecha_fin = fields.Date('Fecha fin')
     cantidad_producida = fields.Integer('Cantidad')
     estado = fields.Selection([('en_proceso', 'En Proceso'), ('completo', 'Completo'), ('en_espera', 'En espera de empaquetado')], 'Estado', default='en proceso')
-    empaquetado_ids = fields.Many2one('cerveza.empaquetado', 'Empaquetado', required=True)
+
 
 class INGREDIENTE(models.Model):
-    __name__ = 'cerveza.ingrediente'
+    _name= 'cerveza.ingrediente'
     name = fields.Char('Nombre', required=True)
     tipo = fields.Selection([('malta', 'Malta'), ('lupulo', 'Lúpulo'), ('levadura', 'Levadura'), ('agua', 'Agua'),('otro','Otro')], 'Tipo', required=True)
     cantidad_disponible = fields.Float('Cantidad disponible (kg/l)')
     cerveza_ids = fields.Many2many('cerveza.cerveza', string='Cervezas')
 
 class EMPAQUETADO(models.Model):
-    __name__ = 'cerveza.empaquetado'
-    lote_produccion_ids = fields.Many2one('cerveza.lote_produccion','cerveza.empaquetado_ids', 'Lote de producción', required=True)
+    _name = 'cerveza.empaquetado'
+    lote_produccion_id = fields.Many2one('cerveza.lote_produccion', 'Lote de producción', required=True)
     fecha_empaquetado = fields.Date('Fecha empaquetado')
     cantidad_empaquetada = fields.Integer('Cantidad empaquetada')
 
+
 class DISTRIBUIDOR(models.Model):
-    __name__ = 'cerveza.distribuidor'
+    _name = 'cerveza.distribuidor'
     name = fields.Char('Nombre', required=True) 
     direccion = fields.Char('Dirección', required=True)
     telefono = fields.Char('Teléfono', required=True)

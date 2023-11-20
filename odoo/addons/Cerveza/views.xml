@@ -40,11 +40,11 @@
 	<record id="cerveza_action" model="ir.actions.act_window">
 		<field name="name">Cerveza</field>
 		<field name="res_model">cerveza.cerveza</field>
-		<field name="view_type">form</field>
 		<field name="view_mode">tree,form</field>
 	</record>
 
-	<menuitem id="cerveza_menu" name="Cerveza" parent="cerveza_menu" sequence="10"/>
+
+	<menuitem id="cerveza_menu" name="Cerveza" sequence="10"/>
 	<menuitem id="cerveza_sub_menu" name="Cerveza" parent="cerveza_menu" action="cerveza_action" sequence="10"/>
 
 <!--LOTE_PRODUCCION-->
@@ -54,10 +54,10 @@
 		<field name="arch" type="xml">
 			<tree string="Lote de Produccion">
 				<field name="lote_produccion_ids"/>
-					<field name="fecha_inicio"/>
-					<field name="fecha_fin"/>
-					<field name="cantidad_producida"/>
-					<field name="estado"/>
+				<field name="fecha_inicio"/>
+				<field name="fecha_fin"/>
+				<field name="cantidad_producida"/>
+				<field name="estado"/>
 			</tree>
 		</field>
 	</record>
@@ -84,16 +84,16 @@
 		<field name="name">lote_produccion.calendar</field>
 		<field name="model">cerveza.lote_produccion</field>
 		<field name="arch" type="xml">
-			<calendar string="Lote de Produccion" date_start="fecha_inicio" date_stop="fecha_fin" color="cerveza"/>
+			<calendar string="Lote de Produccion" date_start="fecha_inicio" date_stop="fecha_fin"/>
 		</field>
 	</record>
 
 	<record id="lote_produccion_action" model="ir.actions.act_window">
 		<field name="name">Lote de Produccion</field>
 		<field name="res_model">cerveza.lote_produccion</field>
-		<field name="view_type">form</field>
 		<field name="view_mode">tree,form</field>
 	</record>
+
 
 	<menuitem id="lote_produccion_menu" name="Lote de Produccion" parent="cerveza_menu" sequence="10"/>
 	<menuitem id="lote_produccion_sub_menu" name="Lote de Produccion" parent="lote_produccion_menu" action="lote_produccion_action" sequence="10"/>
@@ -121,8 +121,8 @@
 					<group>
 						<field name="name"/>
 						<field name="tipo"/>
-						<field name="precio"/>
-						<field name="stock"/>
+						<field name="cantidad_disponible"/>
+						<field name="cerveza_ids"/>
 					</group>
 				</sheet>
 			</form>
@@ -131,26 +131,27 @@
 
 
 <!--EMPAQUETADO-->
-	<record id = "empaquetado_tree_view" model="ir.ui.view">
+	<record id="empaquetado_tree_view" model="ir.ui.view">
 		<field name="name">empaquetado.tree</field>
 		<field name="model">cerveza.empaquetado</field>
 		<field name="arch" type="xml">
 			<tree string="Empaquetado">
-				<field name = "lote_produccion">
+				<field name="lote_produccion_id"/>
 				<field name="fecha_empaquetado"/>
 				<field name="cantidad_empaquetada"/>
 			</tree>
 		</field>
 	</record>
 
-	<record id = "empaquetado_form_view" model="ir.ui.view">
+
+	<record id="empaquetado_form_view" model="ir.ui.view">
 		<field name="name">empaquetado.form</field>
 		<field name="model">cerveza.empaquetado</field>
 		<field name="arch" type="xml">
 			<form string="Empaquetado">
 				<sheet>
 					<group>
-						<field name = "lote_produccion">
+						<field name="lote_produccion_id"/>
 						<field name="fecha_empaquetado"/>
 						<field name="cantidad_empaquetada"/>
 					</group>
@@ -159,12 +160,14 @@
 		</field>
 	</record>
 
+
 	<record id="empaquetado_calendar_view" model="ir.ui.view">
 		<field name="name">empaquetado.calendar</field>
 		<field name="model">cerveza.empaquetado</field>
 		<field name="arch" type="xml">
-			<calendar string="Empaquetado" date_start="fecha_empaquetado" color="cerveza"/>
+			<calendar string="Empaquetado" date_start="fecha_empaquetado"/>
 		</field>
+	</record>
 
 
 <!--DISTRIBUIDOR-->
