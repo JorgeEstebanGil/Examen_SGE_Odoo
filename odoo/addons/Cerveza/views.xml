@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!-- MONEDAS-->
+    <record id="moneda_action" model="ir.actions.act_window">
+        <field name="name">Action moneda</field>
+        <field name="res_model">durhos.moneda</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="moneda_tree" model="ir.ui.view">
+        <field name="name">moneda.tree</field>
+        <field name="model">durhos.moneda</field>
+        <field name="arch" type="xml">
+            <tree string="Moneda">
+                <field name="cod_moneda" />
+				<field name="valor_facial" />
+                <field name="unidad_monetaria" />
+                <field name="diametro"/>
+                <field name="peso"/>
+                <field name="descripcion"/>
+                <field name="metal_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="moneda_form" model="ir.ui.view">
+        <field name="name">moneda.form</field>
+        <field name="model">durhos.moneda</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="cod_moneda" />
+						<field name="valor_facial" />
+						<field name="unidad_monetaria" />
+						<field name="diametro"/>
+						<field name="peso"/>
+						<field name="descripcion"/>
+						<field name="metal_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+	<record id="moneda_menu" model="ir.ui.menu">
+		<field name="name">Moneda</field>
+		<field name="sequence" eval="10"/>
+		<field name="action" ref="moneda_action"/>
+	</record>
+<!-- METAL-->
+	<record id="metal_action" model="ir.actions.act_window">
+		<field name="name">Action metal</field>
+		<field name="res_model">durhos.metal</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<record id="metal_tree" model="ir.ui.view">
+		<field name="name">metal.tree</field>
+		<field name="model">durhos.metal</field>
+		<field name="arch" type="xml">
+			<tree string="Metal">
+				<field name="proporcion" />
+				<field name="ley" />
+				<field name="moneda_id"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id="metal_form" model="ir.ui.view">
+		<field name="name">metal.form</field>
+		<field name="model">durhos.metal</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet>
+					<group>
+						<field name="proporcion" />
+						<field name="ley" />
+						<field name="moneda_id"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="metal_menu" model="ir.ui.menu">
+		<field name="name">Metal</field>
+		<field name="sequence" eval="10"/>
+		<field name="action" ref="metal_action"/>
+	</record>
+<!-- MOLDE-->
+<record id="molde_action" model="ir.actions.act_window">
+		<field name="name">Action molde</field>
+		<field name="res_model">durhos.molde</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<record id="molde_tree" model="ir.ui.view">
+		<field name="name">molde.tree</field>
+		<field name="model">durhos.molde</field>
+		<field name="arch" type="xml">
+			<tree string="Molde">
+				<field name="cod_molde" />
+				<field name="ano_acunacion" />
+				<field name="ano_visible"/>
+				<field name="estrella_id"/>
+				<field name="moneda_id"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id="molde_form" model="ir.ui.view">
+		<field name="name">molde.form</field>
+		<field name="model">durhos.molde</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet>
+					<group>
+						<field name="cod_molde" />
+						<field name="ano_acunacion" />
+						<field name="ano_visible"/>
+						<field name="estrella_id"/>
+						<field name="moneda_id"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="molde_menu" model="ir.ui.menu">
+		<field name="name">Molde</field>
+		<field name="sequence" eval="10"/>
+		<field name="action" ref="molde_action"/>
+	</record>
+
+<!-- ESTRELLA-->
+<record id="estrella_action" model="ir.actions.act_window">
+		<field name="name">Action estrella</field>
+		<field name="res_model">durhos.estrella</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<record id="estrella_tree" model="ir.ui.view">
+		<field name="name">estrella.tree</field>
+		<field name="model">durhos.estrella</field>
+		<field name="arch" type="xml">
+			<tree string="Estrella">
+				<field name="fecha_grabada" />
+				<field name="molde_id" />
+			</tree>
+		</field>
+	</record>
+
+	<record id="estrella_form" model="ir.ui.view">
+		<field name="name">estrella.form</field>
+		<field name="model">durhos.estrella</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet>
+					<group>
+						<field name="fecha_grabada" />
+						<field name="molde_id" />
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="estrella_menu" model="ir.ui.menu">
+		<field name="name">Estrella</field>
+		<field name="sequence" eval="10"/>
+		<field name="action" ref="estrella_action"/>
+	</record>
+<!-- PROVEEDOR-->
+<record id="proveedor_action" model="ir.actions.act_window">
+		<field name="name">Action proveedor</field>
+		<field name="res_model">durhos.proveedor</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<record id="proveedor_tree" model="ir.ui.view">
+		<field name="name">proveedor.tree</field>
+		<field name="model">durhos.proveedor</field>
+		<field name="arch" type="xml">
+			<tree string="Proveedor">
+				<field name="nombre" />
+				<field name="direccion" />
+				<field name="telefono"/>
+				<field name="ejemplar_id"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id="proveedor_form" model="ir.ui.view">
+		<field name="name">proveedor.form</field>
+		<field name="model">durhos.proveedor</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet>
+					<group>
+						<field name="nombre" />
+						<field name="direccion" />
+						<field name="telefono"/>
+						<field name="ejemplar_id"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="proveedor_menu" model="ir.ui.menu">
+		<field name="name">Proveedor</field>
+		<field name="sequence" eval="10"/>
+		<field name="action" ref="proveedor_action"/>
+	</record>
+	
+<!-- EJEMPLAR-->
+<record id="ejemplar_action" model="ir.actions.act_window">
+		<field name="name">Action ejemplar</field>
+		<field name="res_model">durhos.ejemplar</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<record id="ejemplar_tree" model="ir.ui.view">
+		<field name="name">ejemplar.tree</field>
+		<field name="model">durhos.ejemplar</field>
+		<field name="arch" type="xml">
+			<tree string="Ejemplar">
+				<field name="cod_ejemplar" />
+				<field name="num_correlativo" />
+				<field name="precio" />
+				<field name="fecha_adquisicion" />
+				<field name="proveedor_id" />
+			</tree>
+		</field>
+	</record>
+
+	<record id="ejemplar_form" model="ir.ui.view">
+		<field name="name">ejemplar.form</field>
+		<field name="model">durhos.ejemplar</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet>
+					<group>
+						<field name="cod_ejemplar" />
+						<field name="num_correlativo" />
+						<field name="precio" />
+						<field name="fecha_adquisicion" />
+						<field name="proveedor_id" />
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="ejemplar_menu" model="ir.ui.menu">
+		<field name="name">Ejemplar</field>
+		<field name="sequence" eval="10"/>
+		<field name="action" ref="ejemplar_action"/>
+	</record>
+<!-- CLIENTE-->
+	<record id="cliente_action" model="ir.actions.act_window">
+		<field name="name">Action cliente</field>
+		<field name="res_model">durhos.cliente</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<record id="cliente_tree" model="ir.ui.view">
+		<field name="name">cliente.tree</field>
+		<field name="model">durhos.cliente</field>
+		<field name="arch" type="xml">
+			<tree string="Cliente">
+				<field name="fecha" />
+				<field name="precio_venta" />
+				<field name="nombre_cliente"/>
+				<field name="telefono"/>
+				<field name="num_compras_realizadas"/>
+				<field name="ejemplar_id"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id="cliente_form" model="ir.ui.view">
+		<field name="name">cliente.form</field>
+		<field name="model">durhos.cliente</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet>
+					<group>
+						<field name="fecha" />
+						<field name="precio_venta" />
+						<field name="nombre_cliente"/>
+						<field name="telefono"/>
+						<field name="num_compras_realizadas"/>
+						<field name="ejemplar_id"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="cliente_menu" model="ir.ui.menu">
+		<field name="name">Cliente</field>
+		<field name="sequence" eval="10"/>
+		<field name="action" ref="cliente_action"/>
+	</record>
+<!-- ESTADO CONSEVACION MONEDA-->
+	<record id="estado_moneda_action" model="ir.actions.act_window">
+		<field name="name">Action estado_moneda</field>
+		<field name="res_model">durhos.estado_moneda</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<record id="estado_moneda_tree" model="ir.ui.view">
+		<field name="name">estado_moneda.tree</field>
+		<field name="model">durhos.estado_moneda</field>
+		<field name="arch" type="xml">
+			<tree string="estado_moneda">
+				<field name="precio" />
+				<field name="estado" />
+				<field name="nombre" />
+				<field name="descripcion" />
+				<field name="moneda_id" />
+			</tree>
+		</field>
+	</record>
+
+	<record id="estado_moneda_form" model="ir.ui.view">
+		<field name="name">estado_moneda.form</field>
+		<field name="model">durhos.estado_moneda</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet>
+					<group>
+						<field name="precio" />
+						<field name="estado" />
+						<field name="nombre" />
+						<field name="descripcion" />
+						<field name="moneda_id" />
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="estado_moneda_menu" model="ir.ui.menu">
+		<field name="name">estado_moneda</field>
+		<field name="sequence" eval="10"/>
+		<field name="action" ref="estado_moneda_action"/>
+	</record>
+
+<!-- ESTADO CONSEVACION EJEMPLAR-->
+
+<record id="estado_ejemplar_action" model="ir.actions.act_window">
+		<field name="name">Action estado_ejemplar</field>
+		<field name="res_model">durhos.estado_ejemplar</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<record id="estado_ejemplar_tree" model="ir.ui.view">
+		<field name="name">estado_ejemplar.tree</field>
+		<field name="model">durhos.estado_ejemplar</field>
+		<field name="arch" type="xml">
+			<tree string="estado_ejemplar">
+				<field name="ajuste" />
+				<field name="comentario" />
+				<field name="ejemplar_id" />
+			</tree>
+		</field>
+	</record>
+
+	<record id="estado_ejemplar_form" model="ir.ui.view">
+		<field name="name">estado_ejemplar.form</field>
+		<field name="model">durhos.estado_ejemplar</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet>
+					<group>
+						<field name="ajuste" />
+						<field name="comentario" />
+						<field name="ejemplar_id" />
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="estado_ejemplar_menu" model="ir.ui.menu">
+		<field name="name">estado_ejemplar</field>
+		<field name="sequence" eval="10"/>
+		<field name="action" ref="estado_ejemplar_action"/>
+	</record>
+
+<!-- MENUS-->
+
+	<menuitem
+		id="durhos"
+		name="Durhos"
+		sequence="10" 
+		/>
+
+	<menuitem
+		id="moneda_menu"
+		name="Moneda"
+		action ="moneda_action"
+		parent="durhos"	
+	 />
+
+	<menuitem
+		id="metal_menu"
+		name="Metal"
+		action ="metal_action"
+		parent="durhos"	
+	 />
+
+	<menuitem
+		id="molde_menu"
+		name="Molde"
+		action ="molde_action"
+		parent="durhos"	
+	 />
+
+	<menuitem
+		id="estrella_menu"
+		name="Estrella"
+		action ="estrella_action"
+		parent="durhos"	
+	 />
+
+
+	 <menuitem
+		id="proveedor_menu"
+		name="Proveedor"
+		action ="proveedor_action"
+		parent="durhos"
+		 />		
+
+	<menuitem						
+		id="ejemplar_menu"
+		name="Ejemplar"
+		action ="ejemplar_action"
+		parent="durhos"
+		 />
+
+	<menuitem
+		id="cliente_menu"
+		name="Cliente"
+		action ="cliente_action"
+		parent="durhos"
+		 />	
+
+	<menuitem
+		id="estado_moneda_menu"
+		name="Estado Conservacion Moneda"
+		action ="estado_moneda_action"
+		parent="durhos"
+		 />
+	 
+	<menuitem
+		id="estado_ejemplar_menu"
+		name="Estado Conservacion Ejemplar"
+		action ="estado_ejemplar_action"
+		parent="durhos"
+		 />
+
+        
+</odoo>

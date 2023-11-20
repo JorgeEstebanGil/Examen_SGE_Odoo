@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "finalfantasy",
-    'summary': """finalfantasy""",
+    'name': "Cerveza",
+    'summary': """cerveza""",
     'description': """
         ejericcio U3A2:
     """,
