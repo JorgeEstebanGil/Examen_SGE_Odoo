@@ -226,5 +226,5 @@
 	</record>
 
 	<menuitem id="distribuidor_menu" name="Distribuidor" parent="cerveza_menu" sequence="10"/>
-	<menuitem id="distribuidor_sub_menu" name="Distribuidor" parent="distribuidor_menu" sequence="10"/>
+	<menuitem id="distribuidor_sub_menu" name="Distribuidor" parent="distribuidor_menu" action="distribuidor_action" sequence="10"/>
 </odoo>
