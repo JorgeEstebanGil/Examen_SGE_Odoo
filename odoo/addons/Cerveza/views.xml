@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-<?xml version="1.0" encoding="utf-8"?>
-<odoo>
 <!--CERVEZA-->
 	<record id="cerveza_tree_view" model="ir.ui.view">
 		<field name="name">cerveza.tree</field>
@@ -59,7 +57,7 @@
 
 	<record id="lote_produccion_form_view" model="ir.ui.view">
 		<field name="name">lote_produccion.form</field>
-		<field name="model">lote_produccion</field>
+		<field name="model">cerveza.lote_produccion</field>
 		<field name="arch" type="xml">
 			<form string="Lote de Produccion">
 				<sheet>
@@ -76,7 +74,7 @@
 
 	<record id="lote_produccion_calendar_view" model="ir.ui.view">
 		<field name="name">lote_produccion.calendar</field>
-		<field name="model">lote_produccion</field>
+		<field name="model">cerveza.lote_produccion</field>
 		<field name="arch" type="xml">
 			<calendar string="Lote de Produccion" date_start="fecha" date_stop="fecha" color="cerveza"/>
 		</field>
@@ -84,7 +82,7 @@
 
 	<record id="lote_produccion_action" model="ir.actions.act_window">
 		<field name="name">Lote de Produccion</field>
-		<field name="res_model">lote_produccion</field>
+		<field name="res_model">cerveza.lote_produccion</field>
 		<field name="view_type">form</field>
 		<field name="view_mode">tree,form</field>
 	</record>
@@ -92,5 +90,105 @@
 	<menuitem id="lote_produccion_menu" name="Lote de Produccion" parent="cerveza_menu" sequence="10"/>
 	<menuitem id="lote_produccion_sub_menu" name="Lote de Produccion" parent="lote_produccion_menu" action="lote_produccion_action" sequence="10"/>
 
+<!--INGREDIENTE-->
+	<record id = "ingrediente_tree_view" model="ir.ui.view">
+		<field name="name">ingrediente.tree</field>
+		<field name="model">cerveza.ingrediente</field>
+		<field name="arch" type="xml">
+			<tree string="Ingrediente">
+				<field name="name"/>
+				<field name="tipo"/>
+				<field name="precio"/>
+				<field name="stock"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id = "ingrediente_form_view" model="ir.ui.view">
+		<field name="name">ingrediente.form</field>
+		<field name="model">cerveza.ingrediente</field>
+		<field name="arch" type="xml">
+			<form string="Ingrediente">
+				<sheet>
+					<group>
+						<field name="name"/>
+						<field name="tipo"/>
+						<field name="precio"/>
+						<field name="stock"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
 
 
+<!--EMPAQUETADO-->
+	<record id = "empaquetado_tree_view" model="ir.ui.view">
+		<field name="name">empaquetado.tree</field>
+		<field name="model">cerveza.empaquetado</field>
+		<field name="arch" type="xml">
+			<tree string="Empaquetado">
+				<field name="name"/>
+				<field name="tipo"/>
+				<field name="precio"/>
+				<field name="stock"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id = "empaquetado_form_view" model="ir.ui.view">
+		<field name="name">empaquetado.form</field>
+		<field name="model">cerveza.empaquetado</field>
+		<field name="arch" type="xml">
+			<form string="Empaquetado">
+				<sheet>
+					<group>
+						<field name="name"/>
+						<field name="tipo"/>
+						<field name="precio"/>
+						<field name="stock"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="empaquetado_calendar_view" model="ir.ui.view">
+		<field name="name">empaquetado.calendar</field>
+		<field name="model">cerveza.empaquetado</field>
+		<field name="arch" type="xml">
+			<calendar string="Empaquetado" date_start="fecha" date_stop="fecha" color="cerveza"/>
+		</field>
+
+
+<!--DISTRIBUIDOR-->
+	<record id = "distribuidor_tree_view" model="ir.ui.view">
+		<field name="name">distribuidor.tree</field>
+		<field name="model">cerveza.distribuidor</field>
+		<field name="arch" type="xml">
+			<tree string="Distribuidor">
+				<field name="name"/>
+				<field name="tipo"/>
+				<field name="precio"/>
+				<field name="stock"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id = "distribuidor_form_view" model="ir.ui.view">
+		<field name="name">distribuidor.form</field>
+		<field name="model">cerveza.distribuidor</field>
+		<field name="arch" type="xml">
+			<form string="Distribuidor">
+				<sheet>
+					<group>
+						<field name="name"/>
+						<field name="tipo"/>
+						<field name="precio"/>
+						<field name="stock"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+</odoo>
