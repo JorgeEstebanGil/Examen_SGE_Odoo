@@ -129,6 +129,16 @@
 		</field>
 	</record>
 
+	<record id="ingrediente_action" model="ir.actions.act_window">
+		<field name="name">Ingrediente</field>
+		<field name="res_model">cerveza.ingrediente</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<menuitem id="ingrediente_menu" name="Ingrediente" parent="cerveza_menu" sequence="10"/>
+	<menuitem id="ingrediente_sub_menu" name="Ingrediente" parent="ingrediente_menu" action="ingrediente_action" sequence="10"/>
+	
+
 
 <!--EMPAQUETADO-->
 	<record id="empaquetado_tree_view" model="ir.ui.view">
@@ -169,6 +179,14 @@
 		</field>
 	</record>
 
+	<record id="empaquetado_action" model="ir.actions.act_window">
+		<field name="name">Empaquetado</field>
+		<field name="res_model">cerveza.empaquetado</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<menuitem id="empaquetado_menu" name="Empaquetado" parent="cerveza_menu" sequence="10"/>
+	<menuitem id="empaquetado_sub_menu" name="Empaquetado" parent="empaquetado_menu" action="empaquetado_action" sequence="10"/>
 
 <!--DISTRIBUIDOR-->
 	<record id = "distribuidor_tree_view" model="ir.ui.view">
@@ -200,4 +218,13 @@
 			</form>
 		</field>
 	</record>
+
+	<record id="distribuidor_action" model="ir.actions.act_window">
+		<field name="name">Distribuidor</field>
+		<field name="res_model">cerveza.distribuidor</field>
+		<field name="view_mode">tree,form</field>	
+	</record>
+
+	<menuitem id="distribuidor_menu" name="Distribuidor" parent="cerveza_menu" sequence="10"/>
+	<menuitem id="distribuidor_sub_menu" name="Distribuidor" parent="distribuidor_menu" sequence="10"/>
 </odoo>
